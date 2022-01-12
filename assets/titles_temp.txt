@@ -1,0 +1,10 @@
+/// icons
+const String kIconsPath = 'assets/icons/';
+const String kBuoyFile = 'buoy.png';
+const String kSwapFile = 'swap.png';
+const String kWarningFile = 'warning.png';
+const String kClock_iconFile = 'clock_icon.png';
+const String kArrowCirculeFile = 'right-arrow.png';
+const String kSettingFile = 'setting.png';
+const String kSignedFile = 'signed.png';
+const String kDirectIngFile = 'direct-instagram.png';
