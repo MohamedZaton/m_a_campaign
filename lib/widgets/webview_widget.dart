@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:get/get.dart';
 import 'package:m_a_camping/tools/colors.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class CustomWebViewWidget extends StatelessWidget {
   final bool isConnectWeb;
@@ -16,39 +19,33 @@ class CustomWebViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // It provide us total height and width
+    if (Platform.isAndroid) WebView.platform = AndroidWebView();
     print("click_web_view : " + webURL!);
     Size size = MediaQuery.of(context).size;
     if (isConnectWeb) {
       return Scaffold(
-        body: WebviewScaffold(
-          appBar: isAppBar
-              ? AppBar(
-                  backgroundColor: Colors.white,
-                  leading: IconButton(
-                    icon: Icon(Icons.arrow_back, color: kLightPrimary),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                  title: Container(
-                    child: Image(
-                      image: AssetImage("images/icons/pclink_logo_name.png"),
-                      width: 50.0,
-                      height: 50.0,
-                    ),
-                  ),
-                  centerTitle: true,
-                )
-              : PreferredSize(
-                  preferredSize: Size(0.0, 0.0),
-                  child: Container(),
+        backgroundColor: Colors.white,
+        appBar: isAppBar
+            ? AppBar(
+                backgroundColor: Colors.white,
+                leading: IconButton(
+                  icon: Icon(Icons.arrow_back, color: kLightPrimary),
+                  onPressed: () => Get.back(),
                 ),
-          ignoreSSLErrors: true,
-          url: webURL,
-          initialChild: Container(
-            color: kBackGroundColor,
-            child: Center(
-                child: SpinKitCubeGrid(
-              color: kLightPrimary,
-            )),
+              )
+            : PreferredSize(
+                preferredSize: Size(0.0, 0.0),
+                child: Container(),
+              ),
+        body: Center(
+          child: Column(
+            children: [
+              Expanded(
+                child: WebView(
+                  initialUrl: webURL,
+                ),
+              ),
+            ],
           ),
         ),
       );
@@ -64,7 +61,7 @@ class CustomWebViewWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Image(
-                      image: AssetImage("images/icons/disconnected.png"),
+                      image: AssetImage("assets/icons/disconnected.png"),
                       width: 50,
                       height: 50,
                     ),

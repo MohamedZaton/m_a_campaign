@@ -47,7 +47,7 @@ class _DetailsWebViewPageState extends State<DetailsWebViewPage> {
     }
 
     return CustomWebViewWidget(
-      isConnectWeb: isConnectState,
+      isConnectWeb: true,
       webURL: _webURL,
       isAppBar: isAppBar,
     );
