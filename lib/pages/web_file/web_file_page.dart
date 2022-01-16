@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:get/get.dart';
 import 'package:m_a_camping/tools/colors.dart';
+import 'package:m_a_camping/utils/send_mails_util.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import 'web_file_logic.dart';
@@ -31,15 +32,8 @@ class WebFilePage extends StatelessWidget {
           actions: [
             InkWell(
                 onTap: () async {
-                  final Email email = Email(
-                    body: 'zaton Email body',
-                    subject: 'zaton subject',
-                    recipients: ['mohamed.zaytoun@pclink-alx.com'],
-                    cc: ['cc@example.com'],
-                    bcc: ['bcc@example.com'],
-                    isHTML: false,
-                  );
-                  await FlutterEmailSender.send(email);
+                  SendMailsUtil.sendSmtpGmail("mohamed.zaytoun@pclink-alx.com",
+                      viewModel.htmlPath.value);
                 },
                 child: Icon(Icons.share_outlined)),
           ],

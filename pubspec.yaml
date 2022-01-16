@@ -44,7 +44,9 @@ dependencies:
   flutter_custom_clippers: ^2.0.0
   flutter_spinkit: ^5.1.0
   connectivity: ^3.0.6
+  # mails send
   flutter_email_sender: ^5.0.2
+  mailer: ^5.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
