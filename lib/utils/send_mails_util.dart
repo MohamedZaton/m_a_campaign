@@ -8,7 +8,7 @@ class SendMailsUtil {
   static sendRegistrationNotification(String email) async {
     Map<String, String> headers = new Map();
     //headers["Authorization"] = "Bearer SENDGRIDAPIKEY";
-    headers["Authorization"] = "Bearer $kSendGridKey";
+    //  headers["Authorization"] = "Bearer $kSendGridKey";
     headers["Content-Type"] = "application/json";
 
     const String urlSTr = 'https://api.sendgrid.com/v3/mail/send';

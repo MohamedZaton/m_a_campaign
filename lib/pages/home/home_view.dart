@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:m_a_camping/pages/register/register_logic.dart';
 import 'package:m_a_camping/pages/web_file/web_file_page.dart';
 import 'package:m_a_camping/pages/web_view/web_view_page.dart';
 import 'package:m_a_camping/tools/colors.dart';
@@ -13,6 +14,7 @@ class HomePage extends StatelessWidget {
   static const String id = "/home_page";
 
   final logic = Get.put(HomeLogic());
+  final register_logic = Get.put(RegisterLogic());
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +70,9 @@ class HomePage extends StatelessWidget {
             height: 10,
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              register_logic.sendDemoRegister();
+            },
             child: Text(
               'Register Now',
               style:
