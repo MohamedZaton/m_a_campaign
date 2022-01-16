@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:m_a_camping/widgets/outline_btn_widget.dart';
 import 'package:m_a_camping/widgets/trapezium_shape_widget.dart';
 
 class HomeItemWgt extends StatelessWidget {
@@ -74,10 +75,7 @@ class Info extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          OutlinedButton(
-            onPressed: () {},
-            child: Text('Learn More'),
-          )
+          OutLineBtnWgt()
         ],
       ),
     );

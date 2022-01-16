@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:m_a_camping/pages/web_file/web_file_page.dart';
 import 'package:m_a_camping/pages/web_view/web_view_page.dart';
 import 'package:m_a_camping/tools/colors.dart';
 import 'package:m_a_camping/tools/constants.dart';
@@ -49,7 +50,7 @@ class HomePage extends StatelessWidget {
                 onPress: null,
                 isRight: true,
                 imagePath: "assets/images/item_b.png",
-                infoText: "M&A Technology Website",
+                infoText: "EduBuyer Website",
               )),
           const SizedBox(
             height: 10,
@@ -57,9 +58,11 @@ class HomePage extends StatelessWidget {
           SizedBox(
               height: size.height * 0.20,
               child: HomeItemWgt(
-                onPress: null,
+                onPress: () {
+                  Get.to(() => WebFilePage());
+                },
                 imagePath: "assets/images/item_c.png",
-                infoText: "M&A Technology Website",
+                infoText: "Test mails html",
               )),
           const SizedBox(
             height: 10,

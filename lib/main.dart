@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:m_a_camping/pages/home/home_logic.dart';
 import 'package:m_a_camping/pages/home/home_view.dart';
+import 'package:m_a_camping/pages/web_file/web_file_logic.dart';
+import 'package:m_a_camping/pages/web_file/web_file_page.dart';
 import 'package:m_a_camping/themes/light_theme.dart';
 
 void main() {
@@ -25,6 +27,13 @@ class MyApp extends StatelessWidget {
           page: () => HomePage(),
           binding: BindingsBuilder(() {
             Get.lazyPut<HomeLogic>(() => HomeLogic());
+          }),
+        ),
+        GetPage(
+          name: WebFilePage.id,
+          page: () => WebFilePage(),
+          binding: BindingsBuilder(() {
+            Get.lazyPut<WebFileLogic>(() => WebFileLogic());
           }),
         ),
       ],

@@ -1,51 +1,41 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:get/get.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:m_a_camping/tools/colors.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class CustomWebViewWidget extends StatelessWidget {
   final bool isConnectWeb;
-  final String? webURL;
+  final String webURL;
   final bool isAppBar;
   const CustomWebViewWidget(
       {Key? key,
       this.isConnectWeb = false,
-      @required this.webURL,
+      required this.webURL,
       this.isAppBar = true})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
     // It provide us total height and width
-    if (Platform.isAndroid) WebView.platform = AndroidWebView();
-    print("click_web_view : " + webURL!);
+    print("click_web_view : " + webURL);
     Size size = MediaQuery.of(context).size;
     if (isConnectWeb) {
       return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: isAppBar
-            ? AppBar(
-                backgroundColor: Colors.white,
-                leading: IconButton(
-                  icon: Icon(Icons.arrow_back, color: kLightPrimary),
-                  onPressed: () => Get.back(),
-                ),
-              )
-            : PreferredSize(
-                preferredSize: Size(0.0, 0.0),
-                child: Container(),
-              ),
-        body: Center(
-          child: Column(
-            children: [
-              Expanded(
-                child: WebView(
-                  initialUrl: webURL,
-                ),
-              ),
-            ],
+        body: WebviewScaffold(
+          appBar: AppBar(
+            title: Center(
+                child: Image.asset(
+              "assets/images/logo.png",
+              scale: 5,
+            )),
+          ),
+          ignoreSSLErrors: true,
+          url: webURL,
+          initialChild: Container(
+            color: kBackGroundColor,
+            child: Center(
+                child: SpinKitCubeGrid(
+              color: kLightPrimary,
+            )),
           ),
         ),
       );

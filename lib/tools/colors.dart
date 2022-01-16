@@ -12,8 +12,8 @@ const kDarkAccent = Color(0xFFe9f5fe);
 const kSubHeadColor = Color(0xFF707070);
 const kSeeMoreColor = Color(0xFF757070);
 const kShadowColor = Color(0xFFC4C4C6);
-const kTextColor = Colors.white;
-const kTextLightColor = Colors.white;
+const kTextColor = Color(0xFF211522);
+const kTextLightColor = Color(0xFF211522);
 
 /// basic colors
 const kTeal50 = Color(0xFFE0F2F1);
