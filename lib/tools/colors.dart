@@ -30,5 +30,6 @@ const kTextDisActive = Color(0xFFC4C4C6);
 const kIconColorBlack = Color(0xFF211522);
 
 const kErrorRed = Color(0xFFe74c3c);
+const kOrangeColor = Color(0xffef8712);
 const kColorRed = Color(0xFFF3090B);
 const kSurfaceWhite = Color(0xFFFFFBFA);
