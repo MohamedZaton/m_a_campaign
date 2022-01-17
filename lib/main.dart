@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:m_a_camping/pages/home/home_logic.dart';
 import 'package:m_a_camping/pages/home/home_view.dart';
+import 'package:m_a_camping/pages/register/register_logic.dart';
+import 'package:m_a_camping/pages/register/register_view.dart';
 import 'package:m_a_camping/pages/web_file/web_file_logic.dart';
 import 'package:m_a_camping/pages/web_file/web_file_page.dart';
 import 'package:m_a_camping/themes/light_theme.dart';
@@ -47,6 +49,13 @@ class MyApp extends StatelessWidget {
           page: () => WebFilePage(),
           binding: BindingsBuilder(() {
             Get.lazyPut<WebFileLogic>(() => WebFileLogic());
+          }),
+        ),
+        GetPage(
+          name: RegisterPage.id,
+          page: () => RegisterPage(),
+          binding: BindingsBuilder(() {
+            Get.lazyPut<RegisterLogic>(() => RegisterLogic());
           }),
         ),
       ],

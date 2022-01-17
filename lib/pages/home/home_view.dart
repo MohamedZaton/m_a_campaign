@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:m_a_camping/pages/register/register_logic.dart';
+import 'package:m_a_camping/pages/register/register_view.dart';
 import 'package:m_a_camping/pages/web_file/web_file_page.dart';
 import 'package:m_a_camping/pages/web_view/web_view_page.dart';
 import 'package:m_a_camping/tools/colors.dart';
@@ -36,11 +37,7 @@ class HomePage extends StatelessWidget {
           SizedBox(
               height: size.height * 0.20,
               child: HomeItemWgt(
-                onPress: () {
-                  Get.to(const DetailsWebViewPage(
-                    webURL: kMAUrl,
-                  ));
-                },
+                onPress: () {},
                 infoText: "M&A Technology Website",
               )),
           const SizedBox(
@@ -48,7 +45,7 @@ class HomePage extends StatelessWidget {
           ),
           SizedBox(
               height: size.height * 0.20,
-              child: HomeItemWgt(
+              child: const HomeItemWgt(
                 onPress: null,
                 isRight: true,
                 imagePath: "assets/images/item_b.png",
@@ -71,7 +68,7 @@ class HomePage extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              register_logic.sendDemoRegister();
+              Get.to(RegisterPage());
             },
             child: Text(
               'Register Now',

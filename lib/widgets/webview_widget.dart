@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:m_a_camping/tools/colors.dart';
 
 class CustomWebViewWidget extends StatelessWidget {
@@ -20,23 +19,19 @@ class CustomWebViewWidget extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     if (isConnectWeb) {
       return Scaffold(
-        body: WebviewScaffold(
-          appBar: AppBar(
-            title: Center(
-                child: Image.asset(
-              "assets/images/logo.png",
-              scale: 5,
-            )),
-          ),
-          ignoreSSLErrors: true,
-          url: webURL,
-          initialChild: Container(
-            color: kBackGroundColor,
-            child: Center(
-                child: SpinKitCubeGrid(
-              color: kLightPrimary,
-            )),
-          ),
+        appBar: AppBar(
+          title: Center(
+              child: Image.asset(
+            "assets/images/logo.png",
+            scale: 5,
+          )),
+        ),
+        body: Container(
+          color: kBackGroundColor,
+          child: Center(
+              child: SpinKitCubeGrid(
+            color: kLightPrimary,
+          )),
         ),
       );
     } else {
