@@ -4,6 +4,7 @@ import 'package:m_a_camping/tools/colors.dart';
 import 'package:m_a_camping/tools/constants.dart';
 import 'package:m_a_camping/tools/styles.dart';
 import 'package:m_a_camping/utils/screens.dart';
+import 'package:m_a_camping/widgets/background_widget.dart';
 
 import 'register_logic.dart';
 
@@ -30,13 +31,7 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image(
-            image: AssetImage("assets/images/main_bkgd.png"),
-            alignment: Alignment.center,
-            height: double.infinity,
-            width: double.infinity,
-            fit: BoxFit.fill,
-          ),
+          BackGroundWgt(),
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: ScreenMobile.width(context) * 0.05,
