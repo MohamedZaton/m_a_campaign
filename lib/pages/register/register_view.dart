@@ -12,6 +12,16 @@ class RegisterPage extends StatelessWidget {
 
   final register_logic = Get.put(RegisterLogic());
   final GlobalKey<FormState> _formRgtKey = GlobalKey<FormState>();
+  String fullNameVi = "",
+      schoolVi = "",
+      titleVi = "",
+      emailVi = "",
+      phoneVi = "";
+  TextEditingController fullNameCtr = TextEditingController(),
+      schoolCtr = TextEditingController(),
+      titleCtr = TextEditingController(),
+      emailCtr = TextEditingController(),
+      phoneCtr = TextEditingController();
 
   RegisterPage({Key? key}) : super(key: key);
 
@@ -56,6 +66,7 @@ class RegisterPage extends StatelessWidget {
 
                     /// full name field
                     TextFormField(
+                      controller: fullNameCtr,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                         hintText: kFullNameTxt,
@@ -75,6 +86,7 @@ class RegisterPage extends StatelessWidget {
 
                     /// School field
                     TextFormField(
+                      controller: schoolCtr,
                       decoration: const InputDecoration(
                         hintText: kSchoolTxt,
                         fillColor: Colors.white,
@@ -88,6 +100,7 @@ class RegisterPage extends StatelessWidget {
 
                     /// Title field
                     TextFormField(
+                      controller: titleCtr,
                       decoration: const InputDecoration(
                         hintText: kTitleTxt,
                         fillColor: Colors.white,
@@ -101,6 +114,7 @@ class RegisterPage extends StatelessWidget {
 
                     /// email field
                     TextFormField(
+                      controller: emailCtr,
                       keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
                         hintText: kEmailTxt,
@@ -111,6 +125,9 @@ class RegisterPage extends StatelessWidget {
                       validator: (String? value) {
                         if (value == null || value.isEmpty) {
                           return 'This field is required ';
+                        } else if (GetUtils.isEmail(value)) {
+                        } else {
+                          return 'This field is required ';
                         }
                       },
                     ),
@@ -120,6 +137,7 @@ class RegisterPage extends StatelessWidget {
 
                     /// Phone Number field
                     TextFormField(
+                      controller: phoneCtr,
                       keyboardType: TextInputType.phone,
                       decoration: const InputDecoration(
                         hintText: kPhoneNumberTxt,
@@ -138,8 +156,15 @@ class RegisterPage extends StatelessWidget {
                       height: ScreenMobile.width(context) * 0.05,
                     ),
 
+                    /// Register Form
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (_formRgtKey.currentState!.validate()) {
+                          print("valid T T");
+                        } else {
+                          print("vaild F FF");
+                        }
+                      },
                       child: Text(
                         kRegisterTxt,
                         style: TextStyle(
