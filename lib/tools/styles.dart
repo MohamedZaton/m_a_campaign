@@ -36,8 +36,8 @@ const kSponDetailsStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-const kServicesDetailsStyle = TextStyle(
-  fontSize: 15.0,
+const kDetailsTxtStyle = TextStyle(
+  fontSize: 8.0,
   color: Colors.blueGrey,
 );
 

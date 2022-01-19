@@ -29,16 +29,18 @@ class SendMailsUtil {
     // See the named arguments of SmtpServer for further configuration
     // options.
 
+    bool isMailShot = htmlLink.contains("html");
     // Create our message.
     final message = Message()
-      ..from = Address(kMail, 'Your name')
+      ..from = Address(kMail, 'M&A Technology')
       ..recipients.add(sendTo)
       // ..ccRecipients.addAll(['destCc1@example.com', 'destCc2@example.com'])
       // ..bccRecipients.add(Address('bccAddress@example.com'))
-      ..subject = 'Test Dart Mailer library :: 😀 :: ${DateTime.now()}'
-      ..text = 'This is the plain text.\nThis is line 2 of the text part.'
-      ..html = await rootBundle.loadString(htmlLink);
-    ;
+      ..subject = '(Testing) Mail from smartphone app '
+      ..text = isMailShot
+          ? ''
+          : 'this is a website you liked on our site\n ${htmlLink} '
+      ..html = isMailShot ? await rootBundle.loadString(htmlLink) : null;
 
     try {
       final sendReport = await send(message, smtpServer);

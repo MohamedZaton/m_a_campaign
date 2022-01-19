@@ -7,7 +7,6 @@ import 'package:m_a_camping/services/app_api.dart';
 import 'package:m_a_camping/tools/api_keys.dart';
 
 class RegisterLogic extends GetxController {
-  RxBool isSuccessSent = false.obs;
   @override
   void onReady() {
     // TODO: implement onReady
@@ -29,6 +28,5 @@ class RegisterLogic extends GetxController {
       // offline send
       Get.snackbar("Register Form", "Success save");
     }
-    isSuccessSent.value = true;
   }
 }
