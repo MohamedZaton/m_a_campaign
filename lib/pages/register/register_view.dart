@@ -58,8 +58,10 @@ class RegisterPage extends StatelessWidget {
                             /// register title
                             Text(
                               kRegToWinTxt,
-                              style:
-                                  kTitleTextStyle.copyWith(color: Colors.white),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1
+                                  ?.copyWith(color: Colors.white),
                             ),
                           ],
                         ),

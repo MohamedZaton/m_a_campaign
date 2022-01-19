@@ -33,6 +33,9 @@ class HomePage extends StatelessWidget {
                     )
                   ],
                 ),
+                SizedBox(
+                  height: 4,
+                ),
                 Expanded(
                   child: Center(
                     child: Container(

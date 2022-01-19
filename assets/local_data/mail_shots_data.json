@@ -2,17 +2,17 @@
   {
     "label_name": "Absolute",
     "icon_path": "assets/icons/absolute.png",
-    "html_go_path": ""
+    "html_go_path": "assets/mails_shot/absolute.html"
   },
   {
     "label_name": "AnyWhere Cart",
     "icon_path": "assets/icons/any_where_cart.png",
-    "html_go_path": ""
+    "html_go_path": "assets/mails_shot/cart.html"
   },
   {
     "label_name": "Data Center",
     "icon_path": "assets/icons/data_center.png",
-    "html_go_path": "assets/mails_shot/data_center.html"
+    "html_go_path": "assets/mails_shot/data_center_2.html"
   },
   {
     "label_name": "IoT",
@@ -42,7 +42,7 @@
   {
     "label_name": "Manufacturing",
     "icon_path": "assets/icons/manufacturing.png",
-    "html_go_path": ""
+    "html_go_path": "assets/mails_shot/manufacturing.html"
   },
   {
     "label_name": "Register To Win",
@@ -62,6 +62,6 @@
   {
     "label_name": "Verkada",
     "icon_path": "assets/icons/verkada.png",
-    "html_go_path": ""
+    "html_go_path": "assets/mails_shot/verkada.html"
   }
 ]

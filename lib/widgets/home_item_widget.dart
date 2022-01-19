@@ -6,8 +6,6 @@ import 'package:m_a_camping/pages/register/register_view.dart';
 import 'package:m_a_camping/pages/web_file/web_file_logic.dart';
 import 'package:m_a_camping/pages/web_file/web_file_page.dart';
 import 'package:m_a_camping/utils/screens.dart';
-import 'package:m_a_camping/widgets/outline_btn_widget.dart';
-import 'package:m_a_camping/widgets/trapezium_shape_widget.dart';
 
 class HomeItemWgt extends StatelessWidget {
   final HomeItemModel homeItemModel;
@@ -55,8 +53,8 @@ class HomeItemWgt extends StatelessWidget {
 
   Widget Pic(String imagePath, BuildContext ctx) {
     return Container(
-      width: ScreenMobile.width(ctx) * 0.25,
-      height: ScreenMobile.width(ctx) * 0.25,
+      width: ScreenMobile.width(ctx) * 0.20,
+      height: ScreenMobile.width(ctx) * 0.20,
       decoration: BoxDecoration(
         image: DecorationImage(
           alignment: Alignment.centerRight,
@@ -91,7 +89,7 @@ class Info extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .subtitle1
-                ?.copyWith(color: Colors.white),
+                ?.copyWith(color: Colors.black),
           ),
         ),
       ],
