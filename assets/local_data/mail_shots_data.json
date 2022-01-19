@@ -27,7 +27,7 @@
   {
     "label_name": "Linkedin",
     "icon_path": "assets/icons/linkedin.png",
-    "html_go_path": ""
+    "html_go_path": "https://www.linkedin.com/company/m&a-technology/"
   },
   {
     "label_name": "LogTech",
@@ -37,7 +37,7 @@
   {
     "label_name": "M&A Technology",
     "icon_path": "assets/icons/m_a_logo.png",
-    "html_go_path": "http://www.macomp.com/"
+    "html_go_path": "https://www.macomp.com/"
   },
   {
     "label_name": "Manufacturing",
@@ -47,17 +47,21 @@
   {
     "label_name": "Register To Win",
     "icon_path": "assets/icons/register_to_win.png",
-    "html_go_path": ""
+    "html_go_path": "/register_page"
   },
   {
     "label_name": "Think Write",
-    "icon_path": "assets/icons/thankwrite.png",
+    "icon_path": "assets/icons/think_write.png",
     "html_go_path": "assets/mails_shot/thinkwrite.html"
   },
   {
     "label_name": "Edu Buyer",
     "icon_path": "assets/icons/edu_buyer.png",
     "html_go_path": "http://www.edubuyers.com/"
+  },
+  {
+    "label_name": "Verkada",
+    "icon_path": "assets/icons/verkada.png",
+    "html_go_path": ""
   }
-
 ]

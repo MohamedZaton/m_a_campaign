@@ -1,33 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:m_a_camping/models/home_item_model.dart';
+import 'package:m_a_camping/pages/register/register_view.dart';
+import 'package:m_a_camping/pages/web_file/web_file_logic.dart';
+import 'package:m_a_camping/pages/web_file/web_file_page.dart';
 import 'package:m_a_camping/utils/screens.dart';
 import 'package:m_a_camping/widgets/outline_btn_widget.dart';
 import 'package:m_a_camping/widgets/trapezium_shape_widget.dart';
 
 class HomeItemWgt extends StatelessWidget {
-  final String infoText;
-  final String? imagePath;
-  final Function()? onPress;
-
+  final HomeItemModel homeItemModel;
   const HomeItemWgt({
     Key? key,
-    required this.infoText,
-    this.imagePath = "assets/icons/m_a_logo.png",
-    required this.onPress,
+    required this.homeItemModel,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var ctx = context;
+    final webfileLogic = Get.put(WebFileLogic());
+
     return InkWell(
-      onTap: onPress,
+      onTap: () {
+        String goPath = homeItemModel.htmlGoPath!;
+        String getTitle = homeItemModel.labelName!;
+
+        webfileLogic.title.value = getTitle;
+
+        if (goPath.isNotEmpty) {
+          if (goPath.toString().contains(".html")) {
+            webfileLogic.htmlPath.value = goPath;
+            Get.to(WebFilePage());
+          } else if (goPath.contains(RegisterPage.id)) {
+            Get.to(RegisterPage());
+          } else if (goPath.toString().contains("www")) {
+            webfileLogic.htmlPath.value = goPath;
+
+            Get.to(WebFilePage());
+          }
+        }
+      },
       child: Column(
         children: [
-          Pic(imagePath!, ctx),
+          Pic(homeItemModel.iconPath!, ctx),
           const SizedBox(
             height: 2,
           ),
-          Info(infoText),
+          Info(homeItemModel.labelName!),
         ],
       ),
     );

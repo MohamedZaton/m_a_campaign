@@ -2,14 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:m_a_camping/pages/register/register_logic.dart';
-import 'package:m_a_camping/pages/register/register_view.dart';
-import 'package:m_a_camping/pages/web_file/web_file_page.dart';
-import 'package:m_a_camping/pages/web_view/web_view_page.dart';
-import 'package:m_a_camping/tools/colors.dart';
-import 'package:m_a_camping/tools/constants.dart';
-import 'package:m_a_camping/utils/screens.dart';
+
 import 'package:m_a_camping/widgets/background_widget.dart';
-import 'package:m_a_camping/widgets/home_item_widget.dart';
 
 import 'home_logic.dart';
 

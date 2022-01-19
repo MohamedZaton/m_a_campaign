@@ -19,40 +19,37 @@ class WebFilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     WebViewController _controller;
 
-    final viewModel = Get.put(WebFileLogic());
+    final webfileLogic = Get.put(WebFileLogic());
+    bool isHtmlLocal = webfileLogic.htmlPath.value.contains(".html");
+    String title = webfileLogic.title.value;
 
     return Scaffold(
         backgroundColor: kBackGroundColor,
         appBar: AppBar(
-          title: Center(
-              child: Image.asset(
-            "assets/images/logo.png",
-            scale: 5,
-          )),
+          title: Center(child: Text(title)),
           actions: [
             InkWell(
                 onTap: () async {
                   SendMailsUtil.sendSmtpGmail("mohamed.zaytoun@pclink-alx.com",
-                      viewModel.htmlPath.value);
+                      webfileLogic.htmlPath.value);
                 },
                 child: Icon(Icons.share_outlined)),
           ],
         ),
-        body: WebView(
-          initialUrl: 'about:blank',
-          onWebViewCreated: (WebViewController webViewController) {
-            _controller = webViewController;
-            print("ggettx = " + viewModel.htmlPath.value);
-            loadHtmlFromAssets(_controller, viewModel.htmlPath.value);
-          },
-        ));
-  }
-
-  loadHtmlFromAssets(
-      WebViewController webViewController, String htmlPath) async {
-    String fileText = await rootBundle.loadString(htmlPath);
-    webViewController.loadUrl(Uri.dataFromString(fileText,
-            mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
-        .toString());
+        // webView controll
+        body: isHtmlLocal
+            ? WebView(
+                initialUrl: 'about:blank',
+                onWebViewCreated: (WebViewController webViewController) {
+                  _controller = webViewController;
+                  print("ggettx = " + webfileLogic.htmlPath.value);
+                  webfileLogic.loadHtmlFromAssets(
+                      _controller, webfileLogic.htmlPath.value);
+                },
+              )
+            : WebView(
+                initialUrl: webfileLogic.htmlPath.value,
+                javascriptMode: JavascriptMode.unrestricted,
+              ));
   }
 }
