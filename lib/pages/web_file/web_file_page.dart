@@ -93,6 +93,8 @@ class WebFilePage extends StatelessWidget {
                                   print("valid Form True");
                                   SendMailsUtil.sendSmtpGmail(emailCtr.text,
                                       webfileLogic.htmlPath.value);
+                                  // SendMailsUtil.sendRegistrationNotification(
+                                  //     emailCtr.text);
                                   Get.back();
                                 } else {
                                   print("vaild F FF");
