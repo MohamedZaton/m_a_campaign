@@ -8,7 +8,7 @@ import 'package:mailer/smtp_server.dart';
 import 'package:flutter/services.dart';
 
 class SendMailsUtil {
-  static sendRegistrationNotification(String email) async {
+  static sendRegistrationNotification(String sendTo) async {
     Map<String, String> headers = new Map();
     //headers["Authorization"] = "Bearer SENDGRIDAPIKEY";
     headers["Authorization"] = "Bearer $kSendGridKey";
@@ -17,7 +17,7 @@ class SendMailsUtil {
       "personalizations": [
         {
           "to": [
-            {"email": "superzaton74@gmail.com", "name": "Mohamed"}
+            {"email": "${sendTo}", "name": "Mohamed"}
           ],
           "subject": "Hello, World!"
         }

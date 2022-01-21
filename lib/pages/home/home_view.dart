@@ -20,7 +20,9 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          BackGroundWgt(),
+          BackGroundWgt(
+            imageBgPath: "assets/images/main_bkgd_2.png",
+          ),
           SafeArea(
             child: Column(
               children: [
@@ -28,7 +30,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      "assets/icons/logo_line.png",
+                      "assets/icons/logo_line_2.png",
                       scale: 5,
                     )
                   ],

@@ -7,7 +7,7 @@
   {
     "label_name": "AnyWhere Cart",
     "icon_path": "assets/icons/any_where_cart.png",
-    "html_go_path": "assets/mails_shot/cart.html"
+    "html_go_path": "https://www.anywherecart.com/"
   },
   {
     "label_name": "Data Center",
@@ -22,7 +22,7 @@
   {
     "label_name": "Linksys",
     "icon_path": "assets/icons/link_system.png",
-    "html_go_path": ""
+    "html_go_path": "https://www.linksys.com/us/"
   },
   {
     "label_name": "Linkedin",
@@ -30,9 +30,9 @@
     "html_go_path": "https://www.linkedin.com/company/m&a-technology/"
   },
   {
-    "label_name": "LogTech",
+    "label_name": "LogiTech",
     "icon_path": "assets/icons/logitech.png",
-    "html_go_path": ""
+    "html_go_path": "https://www.logitech.com/en-us"
   },
   {
     "label_name": "M&A Technology",

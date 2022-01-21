@@ -37,7 +37,7 @@ const kSponDetailsStyle = TextStyle(
 );
 
 const kDetailsTxtStyle = TextStyle(
-  fontSize: 8.0,
+  fontSize: 10.0,
   color: Colors.blueGrey,
 );
 

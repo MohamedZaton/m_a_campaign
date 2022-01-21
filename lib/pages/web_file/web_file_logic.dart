@@ -9,6 +9,7 @@ class WebFileLogic extends GetxController {
       'assets/mails_shot/Claim your free headset sample for education today!.html'
           .obs;
   final title = "".obs;
+  final isLoading = true.obs;
   @override
   void onReady() {
     // TODO: implement onReady

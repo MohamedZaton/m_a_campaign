@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:m_a_camping/models/persion_model.dart';
@@ -31,16 +32,22 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Image.asset("assets/icons/logo_line.png")),
+        title: Center(
+            child: Image.asset(
+          "assets/icons/logo_line_2.png",
+          scale: 5,
+        )),
         actions: [],
       ),
       body: Stack(
         children: [
-          BackGroundWgt(),
+          BackGroundWgt(
+            imageBgPath: "assets/images/main_bkgd_3.png",
+          ),
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: ScreenMobile.width(context) * 0.01,
-              vertical: ScreenMobile.width(context) * 0.01,
+              vertical: ScreenMobile.width(context) * 0.05,
             ),
             child: Container(
               padding: EdgeInsets.symmetric(
@@ -61,7 +68,9 @@ class RegisterPage extends StatelessWidget {
                               style: Theme.of(context)
                                   .textTheme
                                   .subtitle1
-                                  ?.copyWith(color: Colors.white),
+                                  ?.copyWith(
+                                      color: kLightPrimary,
+                                      fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
@@ -73,11 +82,20 @@ class RegisterPage extends StatelessWidget {
                         TextFormField(
                           controller: fullNameCtr,
                           keyboardType: TextInputType.name,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             hintText: kFullNameTxt,
                             fillColor: Colors.white,
                             filled: true,
-                            border: OutlineInputBorder(),
+                            border: const OutlineInputBorder(),
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 5), // add padding to adjust icon
+                              child: Image.asset(
+                                'assets/icons/name_1.png',
+                                width: 1,
+                                height: 1,
+                              ),
+                            ),
                           ),
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
@@ -92,11 +110,20 @@ class RegisterPage extends StatelessWidget {
                         /// School field
                         TextFormField(
                           controller: schoolCtr,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             hintText: kSchoolTxt,
                             fillColor: Colors.white,
                             filled: true,
                             border: OutlineInputBorder(),
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 5), // add padding to adjust icon
+                              child: Image.asset(
+                                'assets/icons/school_1.png',
+                                width: 1,
+                                height: 1,
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -106,11 +133,20 @@ class RegisterPage extends StatelessWidget {
                         /// Title field
                         TextFormField(
                           controller: titleCtr,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             hintText: kTitleTxt,
                             fillColor: Colors.white,
                             filled: true,
                             border: OutlineInputBorder(),
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 5), // add padding to adjust icon
+                              child: Image.asset(
+                                'assets/icons/title_1.png',
+                                width: 1,
+                                height: 1,
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -121,11 +157,20 @@ class RegisterPage extends StatelessWidget {
                         TextFormField(
                           controller: emailCtr,
                           keyboardType: TextInputType.emailAddress,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             hintText: kEmailTxt,
                             fillColor: Colors.white,
                             filled: true,
                             border: OutlineInputBorder(),
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 5), // add padding to adjust icon
+                              child: Image.asset(
+                                'assets/icons/mail_1.png',
+                                width: 1,
+                                height: 1,
+                              ),
+                            ),
                           ),
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
@@ -144,11 +189,20 @@ class RegisterPage extends StatelessWidget {
                         TextFormField(
                           controller: phoneCtr,
                           keyboardType: TextInputType.phone,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             hintText: kPhoneNumberTxt,
                             fillColor: Colors.white,
                             filled: true,
                             border: OutlineInputBorder(),
+                            prefixIcon: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 5), // add padding to adjust icon
+                              child: Image.asset(
+                                'assets/icons/phone_1.png',
+                                width: 1,
+                                height: 1,
+                              ),
+                            ),
                           ),
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
