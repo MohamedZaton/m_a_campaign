@@ -48,9 +48,14 @@ class WebFilePage extends StatelessWidget {
                       padding: const EdgeInsets.all(1.8),
                       child: Column(
                         children: [
+                          SizedBox(
+                            height: ScreenMobile.width(context) * 0.02,
+                          ),
+
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: const [
+
                               Text(
                                 "E-mail :",
                                 style: kTitleTextStyle,
@@ -59,7 +64,7 @@ class WebFilePage extends StatelessWidget {
                           ),
 
                           const Text(
-                            "Please write your email address to receive this mailing ",
+                            "Please write your email address to received this website",
                             style: kDetailsTxtStyle,
                           ),
                           SizedBox(
@@ -98,8 +103,11 @@ class WebFilePage extends StatelessWidget {
                                 // SendMailsUtil.sendRegistrationNotification(
                                 //     emailCtr.text);
                                 Get.back();
+                                Get.snackbar("Success ", "Please check your email",icon: Icon(Icons.check_circle,color: Colors.green,),);
+
                               } else {
                                 print("vaild F FF");
+                                Get.back();
                               }
                             },
                             child: Text(

@@ -83,13 +83,16 @@ class Info extends StatelessWidget {
         ConstrainedBox(
           constraints: BoxConstraints(
               maxWidth: MediaQuery.of(context).size.width * 6 / 15),
-          child: Text(
-            infoText!,
-            softWrap: true,
-            style: Theme.of(context)
-                .textTheme
-                .subtitle1
-                ?.copyWith(color: Colors.black),
+          child: Center(
+            child: Text(
+              infoText!,
+              textAlign:TextAlign.center ,
+              softWrap: true,
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1
+                  ?.copyWith(color: Colors.black),
+            ),
           ),
         ),
       ],

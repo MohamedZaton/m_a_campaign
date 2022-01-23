@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:m_a_camping/pages/register/register_logic.dart';
+import 'package:m_a_camping/utils/screens.dart';
 
 import 'package:m_a_camping/widgets/background_widget.dart';
 
@@ -26,14 +27,21 @@ class HomePage extends StatelessWidget {
           SafeArea(
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/icons/logo_line_2.png",
-                      scale: 5,
-                    )
-                  ],
+                SizedBox(
+                  height:ScreenMobile.width(context)*0.02,
+                ),
+                Container(
+                  width: ScreenMobile.width(context),
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/icons/logo_line_2.png",
+                        scale: 4,
+                      )
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 4,

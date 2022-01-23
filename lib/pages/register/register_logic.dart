@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:m_a_camping/models/persion_model.dart';
@@ -23,10 +24,10 @@ class RegisterLogic extends GetxController {
     bool isSent = await AppApi.sendRegisterFormAPI(personModel);
     if (isSent) {
       // online send
-      Get.snackbar("Register Form", "Success Submit");
+      Get.snackbar("Register Form", "Success Submit",icon: Icon(Icons.check_circle,color: Colors.green,),);
     } else {
-      // offline send
-      Get.snackbar("Register Form", "Success save");
+      // offline send‼
+      Get.snackbar("Register Form", "Success",icon: Icon(Icons.check_circle,color: Colors.green,),);
     }
   }
 }
