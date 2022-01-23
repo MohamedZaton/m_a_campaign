@@ -1,5 +1,46 @@
 [
   {
+    "label_name": "M&A Technology",
+    "icon_path": "assets/icons/m_a_logo.png",
+    "html_go_path": "https://www.macomp.com/"
+  },
+  {
+    "label_name": "Edu Buyer",
+    "icon_path": "assets/icons/edu_buyer.png",
+    "html_go_path": "http://www.edubuyers.com/"
+  },
+  {
+    "label_name": "Linkedin",
+    "icon_path": "assets/icons/linkedin.png",
+    "html_go_path": "https://www.linkedin.com/company/m&a-technology/"
+  },
+  {
+    "label_name": "Register To Win",
+    "icon_path": "assets/icons/register_to_win.png",
+    "html_go_path": "/register_page"
+  },
+
+  {
+    "label_name": "Verkada",
+    "icon_path": "assets/icons/verkada.png",
+    "html_go_path": "assets/mails_shot/verkada.html"
+  },
+  {
+    "label_name": "Linksys",
+    "icon_path": "assets/icons/link_system.png",
+    "html_go_path": "https://www.avfirewalls.com/Linksys-HomeWRK.asp?hsa_tgt=kwd-78890480224589:loc-190&hsa_grp=1262240160553218&hsa_src=o&hsa_net=adwords&hsa_mt=e&hsa_ver=3&hsa_ad=&hsa_acc=9041622380&hsa_kw=Linksys%20HomeWRK&hsa_cam=3646089&msclkid=c12226ba94091f4349144753eeda68cd&utm_source=bing&utm_medium=cpc&utm_campaign=Fortinet%20*133&utm_term=Linksys%20HomeWRK&utm_content=Linksys%20HomeWRK"
+  },
+  {
+    "label_name": "Hovercam",
+    "icon_path": "assets/icons/hovercam.png",
+    "html_go_path": "https://www.hovercam.com/"
+  },
+  {
+    "label_name": "Think Write",
+    "icon_path": "assets/icons/think_write.png",
+    "html_go_path": "assets/mails_shot/thinkwrite.html"
+  },
+  {
     "label_name": "Absolute",
     "icon_path": "assets/icons/absolute.png",
     "html_go_path": "assets/mails_shot/absolute.html"
@@ -7,7 +48,7 @@
   {
     "label_name": "AnyWhere Cart",
     "icon_path": "assets/icons/any_where_cart.png",
-    "html_go_path": "https://www.anywherecart.com/"
+    "html_go_path": "https://www.anywherecart.com/products/"
   },
   {
     "label_name": "Data Center",
@@ -20,48 +61,19 @@
     "html_go_path": "assets/mails_shot/iot.html"
   },
   {
-    "label_name": "Linksys",
-    "icon_path": "assets/icons/link_system.png",
-    "html_go_path": "https://www.linksys.com/us/"
-  },
-  {
-    "label_name": "Linkedin",
-    "icon_path": "assets/icons/linkedin.png",
-    "html_go_path": "https://www.linkedin.com/company/m&a-technology/"
-  },
-  {
-    "label_name": "LogiTech",
-    "icon_path": "assets/icons/logitech.png",
-    "html_go_path": "https://www.logitech.com/en-us"
-  },
-  {
-    "label_name": "M&A Technology",
-    "icon_path": "assets/icons/m_a_logo.png",
-    "html_go_path": "https://www.macomp.com/"
-  },
-  {
     "label_name": "Manufacturing",
     "icon_path": "assets/icons/manufacturing.png",
     "html_go_path": "assets/mails_shot/manufacturing.html"
   },
   {
-    "label_name": "Register To Win",
-    "icon_path": "assets/icons/register_to_win.png",
-    "html_go_path": "/register_page"
+    "label_name": "LTE",
+    "icon_path": "assets/icons/lte.png",
+    "html_go_path": "https://www.macomp.com/lte/"
   },
   {
-    "label_name": "Think Write",
-    "icon_path": "assets/icons/think_write.png",
-    "html_go_path": "assets/mails_shot/thinkwrite.html"
-  },
-  {
-    "label_name": "Edu Buyer",
-    "icon_path": "assets/icons/edu_buyer.png",
-    "html_go_path": "http://www.edubuyers.com/"
-  },
-  {
-    "label_name": "Verkada",
-    "icon_path": "assets/icons/verkada.png",
-    "html_go_path": "assets/mails_shot/verkada.html"
+    "label_name": "STM",
+    "icon_path": "assets/icons/stme.png",
+    "html_go_path": "https://www.stmgoods.com/"
   }
+
 ]
