@@ -58,7 +58,7 @@
   {
     "label_name": "IoT",
     "icon_path": "assets/icons/iot.png",
-    "html_go_path": "assets/mails_shot/iot.html"
+    "html_go_path": "https://www.macomp.com/internet-of-things/"
   },
   {
     "label_name": "Manufacturing",
@@ -68,7 +68,7 @@
   {
     "label_name": "LTE",
     "icon_path": "assets/icons/lte.png",
-    "html_go_path": "https://www.macomp.com/lte/"
+    "html_go_path":"https://www.macomp.com/lte/"
   },
   {
     "label_name": "STM",
