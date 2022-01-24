@@ -10,3 +10,4 @@ const String kSchoolTxt = "School District";
 const String kTitleTxt = "Title";
 const String kEmailTxt = "E-Mail";
 const String kPhoneNumberTxt = "Phone Number";
+const String kLocalPersonsDB = "PersonDB";
