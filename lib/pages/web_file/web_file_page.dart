@@ -9,6 +9,7 @@ import 'package:m_a_camping/tools/constants.dart';
 import 'package:m_a_camping/tools/styles.dart';
 import 'package:m_a_camping/utils/screens.dart';
 import 'package:m_a_camping/utils/send_mails_util.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import 'web_file_logic.dart';
@@ -33,7 +34,9 @@ class WebFilePage extends StatelessWidget {
       backgroundColor: kBackGroundColor,
       appBar: AppBar(
         title: Center(child: Text(title)),
+
         actions: [
+          /// share button
           InkWell(
               onTap: () async {
                 // SendMailsUtil.sendSmtpGmail("mohamed.zaytoun@pclink-alx.com",
@@ -98,10 +101,10 @@ class WebFilePage extends StatelessWidget {
                             onPressed: () {
                               if (_formSharetKey.currentState!.validate()) {
                                 print("valid Form True");
-                                SendMailsUtil.sendSmtpGmail(
+                                // SendMailsUtil.sendSmtpGmail(
+                                //     emailCtr.text, webfileLogic.htmlPath.value);
+                                SendMailsUtil.sendShareNotification(
                                     emailCtr.text, webfileLogic.htmlPath.value);
-                                // SendMailsUtil.sendRegistrationNotification(
-                                //     emailCtr.text);
                                 Get.back();
                                 Get.snackbar("Success ", "Please check your email",icon: Icon(Icons.check_circle,color: Colors.green,),);
 
@@ -130,7 +133,35 @@ class WebFilePage extends StatelessWidget {
                   ),
                 ));
               },
-              child: Icon(Icons.share_outlined)),
+              child: Icon(Icons.share_outlined),),
+          SizedBox(width: 10,),
+          // qr button
+          !isHtmlLocal?InkWell(
+              onTap: () async {
+                Get.bottomSheet(Container(
+                  color: Colors.white,
+                  width: ScreenMobile.width(context),
+                  height: ScreenMobile.heigth(context) * 0.5,
+                  child:Column(
+                    children: [
+                      SizedBox(height: 2,),
+                      QrImage(
+                        data: webfileLogic.htmlPath.value,
+                        version: QrVersions.auto,
+                        size: 200.0,
+                      ),
+                      SizedBox(height: 4,),
+
+                      Text("Scan ",style: TextStyle(color: kLightAccent , fontWeight: FontWeight.bold,fontSize: 15 ),),
+                      Text("The QR Code to visit  Website ",style: kTitleTextStyle.copyWith(fontSize:10 ),),
+
+
+                    ],
+                  ),
+                ));
+              },
+              child: Icon(Icons.qr_code),):SizedBox(width: 4,),
+          SizedBox(width: 10,)
         ],
       ),
       // webView controll
@@ -148,8 +179,7 @@ class WebFilePage extends StatelessWidget {
               return Stack(
                 children: [
                   WebView(
-                    initialUrl: webfileLogic.htmlPath.value,
-                    javascriptMode: JavascriptMode.unrestricted,
+                    initialUrl: Uri.encodeFull(webfileLogic.htmlPath.value),
                     onPageFinished: (url) {
                       webfileLogic.isLoading.value = false;
                     },

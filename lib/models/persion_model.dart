@@ -1,9 +1,8 @@
-import 'package:hive/hive.dart';
 
-part 'persion_model.g.dart';
 
-@HiveType(typeId: 0)
-class PersonModel extends HiveObject {
+
+
+class PersonModel  {
   PersonModel({
     this.formId = "33",
     required this.nameFull,
@@ -12,17 +11,17 @@ class PersonModel extends HiveObject {
     required this.phoneNumber,
     required this.email,
   });
-  @HiveField(0)
+
   late final String formId;
-  @HiveField(1)
+
   late final String nameFull;
-  @HiveField(2)
+
   late final String schoolDistract;
-  @HiveField(3)
+
   late final String title;
-  @HiveField(4)
+
   late final String phoneNumber;
-  @HiveField(5)
+
   late final String email;
   String _nameEntyID = "1.3";
   String _schoolEntyID = "4";

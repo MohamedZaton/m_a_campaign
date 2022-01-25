@@ -5,21 +5,20 @@
     "html_go_path": "https://www.macomp.com/"
   },
   {
-    "label_name": "Edu Buyer Online Catalog",
+    "label_name": "Edubuyers Online Catalog",
     "icon_path": "assets/icons/edu_buyer.png",
     "html_go_path": "http://www.edubuyers.com/"
   },
   {
     "label_name": "Linkedin",
     "icon_path": "assets/icons/linkedin.png",
-    "html_go_path": "https://www.linkedin.com/company/m&a-technology/"
+    "html_go_path": "https://www.linkedin.com/company/m&a-technology/?trk=public_jobs_topcard-org-name"
   },
   {
     "label_name": "Register To Win",
     "icon_path": "assets/icons/register_to_win.png",
     "html_go_path": "/register_page"
   },
-
   {
     "label_name": "Verkada",
     "icon_path": "assets/icons/verkada.png",
@@ -75,5 +74,4 @@
     "icon_path": "assets/icons/stme.png",
     "html_go_path": "https://www.stmgoods.com/"
   }
-
 ]

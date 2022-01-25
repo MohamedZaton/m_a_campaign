@@ -3,8 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hive/hive.dart';
+
 import 'package:m_a_camping/models/persion_model.dart';
 import 'package:m_a_camping/pages/home/home_logic.dart';
 import 'package:m_a_camping/pages/home/home_view.dart';
@@ -25,13 +24,9 @@ class MyHttpOverrides extends HttpOverrides {
   }
 }
 
-Future  main() async {
+  main()  {
   HttpOverrides.global = new MyHttpOverrides();
-  WidgetsFlutterBinding.ensureInitialized();
 
-  await Hive.initFlutter();
-  Hive.registerAdapter(PersonModelAdapter());
-  await Hive.openBox<PersonModel>(kLocalPersonsDB);
 
   runApp(const MyApp());
 }

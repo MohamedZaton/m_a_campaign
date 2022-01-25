@@ -100,10 +100,10 @@ class WebFileBrowser extends StatelessWidget {
                             onPressed: () {
                               if (_formSharetKey.currentState!.validate()) {
                                 print("valid Form True");
-                                SendMailsUtil.sendSmtpGmail(
+                                // SendMailsUtil.sendSmtpGmail(
+                                //     emailCtr.text, webfileLogic.htmlPath.value);
+                                SendMailsUtil.sendShareNotification(
                                     emailCtr.text, webfileLogic.htmlPath.value);
-                                // SendMailsUtil.sendRegistrationNotification(
-                                //     emailCtr.text);
                                 Get.back();
                               } else {
                                 print("vaild F FF");
@@ -148,7 +148,7 @@ class WebFileBrowser extends StatelessWidget {
                 children: [
                   WebView(
                     initialUrl: webfileLogic.htmlPath.value,
-                    javascriptMode: JavascriptMode.unrestricted,
+                    javascriptMode: JavascriptMode.disabled,
                     onPageFinished: (url) {
                       webfileLogic.isLoading.value = false;
                     },

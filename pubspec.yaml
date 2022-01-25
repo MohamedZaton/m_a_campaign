@@ -40,6 +40,7 @@ dependencies:
   path_provider: ^2.0.8
   # tools
   google_fonts: ^2.2.0
+  qr_flutter: ^4.0.0
  # wed view
   webviewx: ^0.2.1
   # custom ui
@@ -51,9 +52,8 @@ dependencies:
   # mails send
   flutter_email_sender: ^5.0.2
   mailer: ^5.0.2
-  # local storage
-  hive: ^2.0.5
-  hive_flutter: ^1.1.0
+
+
 
 dev_dependencies:
   flutter_test:
@@ -61,8 +61,7 @@ dev_dependencies:
 
 
   flutter_lints: ^1.0.0
-  hive_generator: ^1.1.2
-  build_runner: ^2.1.7
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
