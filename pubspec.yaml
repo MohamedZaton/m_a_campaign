@@ -42,7 +42,8 @@ dependencies:
   google_fonts: ^2.2.0
   qr_flutter: ^4.0.0
  # wed view
-  webviewx: ^0.2.1
+  webview_flutter: ^3.0.0
+
   # custom ui
   flutter_staggered_grid_view: ^0.6.0
   # lib shapes

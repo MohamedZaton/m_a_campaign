@@ -11,7 +11,7 @@ import 'package:m_a_camping/utils/screens.dart';
 import 'package:m_a_camping/utils/send_mails_util.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:ui' as ui;
-import 'dart:html';
+
 import 'web_file_logic.dart';
 
 class WebFileBrowser extends StatelessWidget {
@@ -26,16 +26,11 @@ class WebFileBrowser extends StatelessWidget {
     WebViewController _controller;
 
     final webfileLogic = Get.put(WebFileLogic());
+
     bool isHtmlLocal = webfileLogic.htmlPath.value.contains(".html");
     String title = webfileLogic.title.value;
     webfileLogic.isLoading.value = true;
-    ui.platformViewRegistry.registerViewFactory(
-        'test-view-type',
-        (int viewId) => IFrameElement()
-          ..width = '640'
-          ..height = '360'
-          ..src = "https://www.youtube.com/embed/5VbAwhBBHsg"
-          ..style.border = 'none');
+
     return Scaffold(
       backgroundColor: kBackGroundColor,
       appBar: AppBar(
