@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "491735966344",
+    "project_id": "m-a-teca",
+    "storage_bucket": "m-a-teca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491735966344:android:8d8ff97424dfd68179753d",
+        "android_client_info": {
+          "package_name": "com.pclink.m_a_camping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491735966344-juil42qclnjbghhaist2jcs0kf7tg2pb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdm7tlGqWCN5fizqdiX0-QmTEwNsMGfV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491735966344-juil42qclnjbghhaist2jcs0kf7tg2pb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

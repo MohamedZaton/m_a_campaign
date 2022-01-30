@@ -9,6 +9,7 @@ const kLightAccent = Color(0xFF17b1f5);
 const kCyanColor = Color(0xFFB1D9FC);
 const kBackGroundColor = Color(0xFFF6FDFF);
 const kDarkAccent = Color(0xFFe9f5fe);
+const kDarkGray= Color(0xFF343434);
 const kSubHeadColor = Color(0xFF707070);
 const kSeeMoreColor = Color(0xFF757070);
 const kShadowColor = Color(0xFFC4C4C6);

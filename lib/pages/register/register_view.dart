@@ -7,6 +7,7 @@ import 'package:m_a_camping/tools/constants.dart';
 import 'package:m_a_camping/tools/styles.dart';
 import 'package:m_a_camping/utils/screens.dart';
 import 'package:m_a_camping/widgets/background_widget.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 import 'register_logic.dart';
 
@@ -36,7 +37,7 @@ class RegisterPage extends StatelessWidget {
             child: Image.asset(
           "assets/icons/logo_line_2.png",
           scale: 5,
-        )),
+        ),),
         actions: [],
       ),
       body: Stack(
@@ -214,7 +215,23 @@ class RegisterPage extends StatelessWidget {
                         SizedBox(
                           height: ScreenMobile.width(context) * 0.05,
                         ),
-
+                        Wrap(children: [ Text(kRegisterText,textAlign: TextAlign.center,style:TextStyle(color:kDarkGray ,fontWeight: FontWeight.bold),),]),
+                        SizedBox(
+                          height: ScreenMobile.width(context) * 0.01,
+                        ),
+                        Wrap(children: [ Text("www.linkedin.com/company/m&a-technology/",textAlign: TextAlign.center,style:TextStyle(color: kLightPrimary ,fontWeight: FontWeight.bold),),]),
+                        SizedBox(
+                          height: ScreenMobile.width(context) * 0.02,
+                        ),
+                        QrImage(
+                          data: "https://www.linkedin.com/company/m&a-technology/",
+                          version: QrVersions.auto,
+                          size: 150.0,
+                          backgroundColor: Colors.white,
+                        ),
+                        SizedBox(
+                          height: ScreenMobile.width(context) * 0.02,
+                        ),
                         /// Register Form
                         ElevatedButton(
                           onPressed: () {

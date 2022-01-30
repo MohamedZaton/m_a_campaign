@@ -1,9 +1,10 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:m_a_camping/models/persion_model.dart';
 import 'package:m_a_camping/pages/home/home_logic.dart';
 import 'package:m_a_camping/pages/home/home_view.dart';
@@ -24,9 +25,14 @@ class MyHttpOverrides extends HttpOverrides {
   }
 }
 
-  main()  {
+void main() async {
   HttpOverrides.global = new MyHttpOverrides();
+  WidgetsFlutterBinding.ensureInitialized();
 
+  await Firebase.initializeApp();
+
+  // Pass all uncaught errors from the framework to Crashlytics.
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
   runApp(const MyApp());
 }
@@ -37,6 +43,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return Center(
       child: Container(
         width: kIsWeb ? 400 : double.infinity,

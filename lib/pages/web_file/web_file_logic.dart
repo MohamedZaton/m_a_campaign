@@ -15,7 +15,7 @@ class WebFileLogic extends GetxController {
   void onInit() {
     super.onInit();
     print("getx[WebFile] call  onInit  ");
-    if (Platform.isAndroid) WebView.platform = AndroidWebView();
+   // if (Platform.isAndroid) WebView.platform = AndroidWebView();
   }
 
   @override

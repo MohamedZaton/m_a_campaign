@@ -11,3 +11,4 @@ const String kTitleTxt = "Title";
 const String kEmailTxt = "E-Mail";
 const String kPhoneNumberTxt = "Phone Number";
 const String kLocalPersonsDB = "PersonDB";
+const String kRegisterText  = "Thank you for registering for the drawing from M & A’s booth 1334 at TCEA. To complete  your registration, please like us on LinkedIn \nfollow the link below,";

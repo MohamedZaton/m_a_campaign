@@ -3,6 +3,7 @@ import 'dart:core';
 
 import 'package:http/http.dart' as http;
 import 'package:m_a_camping/tools/api_keys.dart';
+import 'package:m_a_camping/tools/constants.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
 import 'package:flutter/services.dart';
@@ -49,7 +50,7 @@ class SendMailsUtil {
     headers["Content-Type"] = "application/json";
     final bodyJ = {
       "personalizations": [
-        {
+         {
           "to": [
             {"email": sendTo, "name": "M&A Technology"}
           ],
@@ -57,7 +58,7 @@ class SendMailsUtil {
         }
       ],
       "content": [
-        {"type": "text/plain", "value":'We would appreciate it if you followed us on LinkedIn,\n ${Uri.encodeFull(link)}'},
+        {"type": "text/plain", "value":'${kRegisterText},\n ${Uri.encodeFull(link)}'},
       ],
       "from": {"email": "info@macomp.com", "name": "macomp"},
       "reply_to": {"email": "info@macomp.com", "name": "macomp"}

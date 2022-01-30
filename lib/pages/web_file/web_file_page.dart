@@ -11,15 +11,29 @@ import 'package:m_a_camping/utils/screens.dart';
 import 'package:m_a_camping/utils/send_mails_util.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
+import 'dart:io';
 import 'web_file_logic.dart';
 
-class WebFilePage extends StatelessWidget {
+class WebFilePage extends StatefulWidget {
   static const String id = '/web_file_page';
-  final GlobalKey<FormState> _formSharetKey = GlobalKey<FormState>();
-  TextEditingController emailCtr = TextEditingController();
 
   WebFilePage({Key? key}) : super(key: key);
+
+  @override
+  State<WebFilePage> createState() => _WebFilePageState();
+}
+
+class _WebFilePageState extends State<WebFilePage> {
+  final GlobalKey<FormState> _formSharetKey = GlobalKey<FormState>();
+
+  TextEditingController emailCtr = TextEditingController();
+
+
+  @override
+  void initState() {
+
+    if (Platform.isAndroid) WebView.platform = AndroidWebView();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +53,8 @@ class WebFilePage extends StatelessWidget {
           /// share button
           InkWell(
               onTap: () async {
-                // SendMailsUtil.sendSmtpGmail("mohamed.zaytoun@pclink-alx.com",
-                //     webfileLogic.htmlPath.value);
+
+
                 Get.bottomSheet(Container(
                   color: Colors.white,
                   width: ScreenMobile.width(context),
@@ -137,6 +151,7 @@ class WebFilePage extends StatelessWidget {
           SizedBox(width: 10,),
           // qr button
           !isHtmlLocal?InkWell(
+
               onTap: () async {
                 Get.bottomSheet(Container(
                   color: Colors.white,
@@ -151,11 +166,12 @@ class WebFilePage extends StatelessWidget {
                         size: 200.0,
                       ),
                       SizedBox(height: 4,),
-
                       Text("Scan ",style: TextStyle(color: kLightAccent , fontWeight: FontWeight.bold,fontSize: 15 ),),
-                      Text("The QR Code to visit  Website ",style: kTitleTextStyle.copyWith(fontSize:10 ),),
-
-
+                      Wrap(children: [Text("The QR Code to visit  Website ",style: kTitleTextStyle.copyWith(fontSize:10 ),)]),
+                      Text("Steps : ",textAlign: TextAlign.start,style: TextStyle(color: kLightAccent , fontWeight: FontWeight.bold,fontSize: 15, ),),
+                      Text("1. Open the QR Code reader or the camera on your phone.",textAlign: TextAlign.start,style: TextStyle(color: kDarkGray ,fontSize: 10, ),),
+                      Text("2. Then point your  phone at the QR code to scan it.",textAlign: TextAlign.start,style: TextStyle(color: kDarkGray ,fontSize: 10, ),),
+                      Text("3. Finally, tap the pop-up banner or button.",textAlign: TextAlign.start,style: TextStyle(color: kDarkGray ,fontSize: 10, ),),
                     ],
                   ),
                 ));
@@ -183,6 +199,7 @@ class WebFilePage extends StatelessWidget {
                     onPageFinished: (url) {
                       webfileLogic.isLoading.value = false;
                     },
+                    javascriptMode: JavascriptMode.unrestricted,
                   ),
                   webfileLogic.isLoading.value
                       ? Center(
@@ -194,4 +211,5 @@ class WebFilePage extends StatelessWidget {
             }),
     );
   }
+
 }

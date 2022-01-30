@@ -40,11 +40,11 @@ class RegisterLogic extends GetxController {
 
     if (isSent) {
       // online send
-      SendMailsUtil.sendRegistrationNotification(personModel.email) ;
+      SendMailsUtil.sendRegistrationNotification(personModel.email);
       Get.snackbar("Register Form", "Success Submit",icon: Icon(Icons.check_circle,color: Colors.green,),);
     } else {
       // offline send‼
-
+      SendMailsUtil.sendRegistrationNotification(personModel.email);
       Get.snackbar("Register Form", "Success",icon: Icon(Icons.check_circle,color: Colors.green,),);
     }
   }

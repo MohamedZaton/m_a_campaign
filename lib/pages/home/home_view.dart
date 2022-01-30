@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
@@ -15,9 +17,10 @@ class HomePage extends StatelessWidget {
   final registerLogic = Get.put(RegisterLogic());
 
   @override
-  Widget build(BuildContext context) {
+   build(BuildContext context)  {
     final size = MediaQuery.of(context).size;
-
+    // // Initialize Firebase.
+    // await Firebase.initializeApp();
     return Scaffold(
       body: Stack(
         children: [
