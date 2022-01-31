@@ -1,6 +1,4 @@
-import 'dart:convert';
 
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -10,8 +8,7 @@ import 'package:m_a_camping/tools/styles.dart';
 import 'package:m_a_camping/utils/screens.dart';
 import 'package:m_a_camping/utils/send_mails_util.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'dart:io';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'web_file_logic.dart';
 
 class WebFilePage extends StatefulWidget {
@@ -27,16 +24,15 @@ class _WebFilePageState extends State<WebFilePage> {
   final GlobalKey<FormState> _formSharetKey = GlobalKey<FormState>();
 
   TextEditingController emailCtr = TextEditingController();
+  InAppWebViewController? _webViewController;
 
   @override
   void initState() {
-    if (Platform.isAndroid) WebView.platform = AndroidWebView();
 
   }
 
   @override
   Widget build(BuildContext context) {
-    WebViewController _controller;
 
     final webfileLogic = Get.put(WebFileLogic());
     bool isHtmlLocal = webfileLogic.htmlPath.value.contains(".html");
@@ -101,11 +97,13 @@ class _WebFilePageState extends State<WebFilePage> {
                             } else {}
                           },
                         ),
+
                         SizedBox(
                           height: ScreenMobile.width(context) * 0.05,
                         ),
 
                         /// Register Form
+
                         ElevatedButton(
                           onPressed: () {
                             if (_formSharetKey.currentState!.validate()) {
@@ -153,7 +151,7 @@ class _WebFilePageState extends State<WebFilePage> {
           SizedBox(
             width: 10,
           ),
-          // qr button
+          /// QR code  button
           !isHtmlLocal
               ? InkWell(
                   onTap: () async {
@@ -226,83 +224,58 @@ class _WebFilePageState extends State<WebFilePage> {
                   },
                   child: Icon(Icons.qr_code),
                 )
-              : SizedBox(
+              : const SizedBox(
                   width: 4,
                 ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           )
         ],
       ),
-      // webView controll
+
       body: isHtmlLocal
-          ? WebView(
-              initialUrl: 'about:blank',
-              onWebViewCreated: (WebViewController webViewController) {
-                _controller = webViewController;
-                print("ggettx = " + webfileLogic.htmlPath.value);
-                webfileLogic.loadHtmlFromAssets(
-                    _controller, webfileLogic.htmlPath.value);
+          ?
+        InAppWebView(
+          initialFile:webfileLogic.htmlPath.value ,
+          onReceivedServerTrustAuthRequest: (controller, challenge) async {
+            print(challenge);
+            controller.android.clearSslPreferences();
+            return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.PROCEED);
+          },
+          onWebViewCreated: (InAppWebViewController controller) {
+            _webViewController = controller;
+          },
+
+        ) : Obx(() {
+        return Stack(
+          children: [
+            InAppWebView(
+              initialUrlRequest: URLRequest(url: Uri.parse(webfileLogic.htmlPath.value)),
+              onReceivedServerTrustAuthRequest: (controller, challenge) async {
+                controller.android.clearSslPreferences();
+                return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.PROCEED);
               },
-            )
-          : Obx(() {
-              return Stack(
-                children: [
-                  WebView(
+              onWebViewCreated: (controller) {
+                webfileLogic.isLoading.value=false;
+              },
+              onProgressChanged: (controller, progress) {
+                print("progress == $progress") ;
+                if(progress>=100){
+                  webfileLogic.isLoading.value=false;
+                }else{
+                  webfileLogic.isLoading.value=true;
+                }
 
-                    initialUrl:webfileLogic.htmlPath.value,
-                    onPageFinished: (url) {
-                      webfileLogic.isLoading.value = false;
-                    },
-                    onProgress: (progress) {
-                      webfileLogic.isLoading.value = true;
-                    },
-                    onWebResourceError: (error) {
-                      print("[zt] Webview error type : ${error.errorType}");
-                      print("[zt] Webview error code : ${error.errorCode}");
-                      print("[zt] Webview error description : ${error.description}");
-                      FirebaseCrashlytics.instance.log("[zt] Webview error type : ${error.errorType}");
-                      FirebaseCrashlytics.instance.log("[zt] Webview error code : ${error.errorCode}");
-                      FirebaseCrashlytics.instance.log(
-                          "[zt] Webview error description : ${error.description}");
-                    },
-                    javascriptMode: JavascriptMode.unrestricted,
-
-
-                  ),
-                  webfileLogic.isLoading.value
-                      ? Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : Stack(),
-                ],
-              );
+              },
+            ),
+            webfileLogic.isLoading.value
+                ? Center(
+              child: CircularProgressIndicator(),
+            ) : Stack(),
+          ],
+        );
             }),
+
     );
   }
 }
-/*
-                  WebView(
-                    initialUrl: Uri.encodeFull(webfileLogic.htmlPath.value),
-
-                    onPageFinished: (url) {
-                      webfileLogic.isLoading.value = false;
-                    },
-                    onProgress: (progress) {
-                      webfileLogic.isLoading.value = true;
-                    },
-                    onWebResourceError: (error) {
-                      print("[zt] Webview error type : ${error.errorType}");
-                      print("[zt] Webview error code : ${error.errorCode}");
-                      print(
-                          "[zt] Webview error description : ${error.description}");
-                      FirebaseCrashlytics.instance.log("[zt] Webview error type : ${error.errorType}");
-                      FirebaseCrashlytics.instance.log("[zt] Webview error code : ${error.errorCode}");
-                      FirebaseCrashlytics.instance.log(
-                          "[zt] Webview error description : ${error.description}");
-                    },
-                    javascriptMode: JavascriptMode.unrestricted,
-                    allowsInlineMediaPlayback: true,
-
-                  ),
-*/

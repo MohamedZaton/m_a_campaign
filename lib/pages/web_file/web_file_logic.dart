@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class WebFileLogic extends GetxController {
   final htmlPath =
@@ -30,11 +29,11 @@ class WebFileLogic extends GetxController {
     super.onClose();
   }
 
-  loadHtmlFromAssets(
+/*  loadHtmlFromAssets(
       WebViewController webViewController, String htmlPath) async {
     String fileText = await rootBundle.loadString(htmlPath);
     webViewController.loadUrl(Uri.dataFromString(fileText,
             mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
         .toString());
-  }
+  }*/
 }

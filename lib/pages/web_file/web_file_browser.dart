@@ -9,7 +9,6 @@ import 'package:m_a_camping/tools/constants.dart';
 import 'package:m_a_camping/tools/styles.dart';
 import 'package:m_a_camping/utils/screens.dart';
 import 'package:m_a_camping/utils/send_mails_util.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:ui' as ui;
 
 import 'web_file_logic.dart';
@@ -23,7 +22,7 @@ class WebFileBrowser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WebViewController _controller;
+    //WebViewController _controller;
 
     final webfileLogic = Get.put(WebFileLogic());
 
@@ -128,26 +127,17 @@ class WebFileBrowser extends StatelessWidget {
         ],
       ),
       // webView controll
-      body: isHtmlLocal
-          ? WebView(
-              initialUrl: 'about:blank',
-              onWebViewCreated: (WebViewController webViewController) {
-                _controller = webViewController;
-                print("ggettx = " + webfileLogic.htmlPath.value);
-                webfileLogic.loadHtmlFromAssets(
-                    _controller, webfileLogic.htmlPath.value);
-              },
-            )
-          : Obx(() {
+      body: Obx(() {
               return Stack(
                 children: [
-                  WebView(
+                    Container(),
+/*                  WebView(
                     initialUrl: webfileLogic.htmlPath.value,
                     javascriptMode: JavascriptMode.disabled,
                     onPageFinished: (url) {
                       webfileLogic.isLoading.value = false;
                     },
-                  ),
+                  ),*/
                   webfileLogic.isLoading.value
                       ? Center(
                           child: CircularProgressIndicator(),
