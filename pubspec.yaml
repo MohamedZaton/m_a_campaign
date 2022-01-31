@@ -41,6 +41,8 @@ dependencies:
   qr_flutter: ^4.0.0
  # wed view
   webview_flutter: ^3.0.0
+  flutter_webview_plugin:
+    git: https://github.com/snoopdoggy322/flutter_webview_plugin
   # custom ui
   flutter_staggered_grid_view: ^0.6.0
   # lib shapes
@@ -53,6 +55,9 @@ dependencies:
   # firebase libs
   firebase_core: ^1.12.0
   firebase_crashlytics: ^2.5.0
+  # Network
+  universal_platform: ^1.0.0+1
+
 
 dev_dependencies:
   flutter_test:

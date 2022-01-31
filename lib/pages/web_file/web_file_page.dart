@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:get/get.dart';
 import 'package:m_a_camping/tools/colors.dart';
 import 'package:m_a_camping/tools/constants.dart';
@@ -32,6 +31,7 @@ class _WebFilePageState extends State<WebFilePage> {
   @override
   void initState() {
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
+
   }
 
   @override
@@ -249,7 +249,8 @@ class _WebFilePageState extends State<WebFilePage> {
               return Stack(
                 children: [
                   WebView(
-                    initialUrl: Uri.encodeFull(webfileLogic.htmlPath.value),
+
+                    initialUrl:webfileLogic.htmlPath.value,
                     onPageFinished: (url) {
                       webfileLogic.isLoading.value = false;
                     },
@@ -259,10 +260,15 @@ class _WebFilePageState extends State<WebFilePage> {
                     onWebResourceError: (error) {
                       print("[zt] Webview error type : ${error.errorType}");
                       print("[zt] Webview error code : ${error.errorCode}");
-                      print(
+                      print("[zt] Webview error description : ${error.description}");
+                      FirebaseCrashlytics.instance.log("[zt] Webview error type : ${error.errorType}");
+                      FirebaseCrashlytics.instance.log("[zt] Webview error code : ${error.errorCode}");
+                      FirebaseCrashlytics.instance.log(
                           "[zt] Webview error description : ${error.description}");
                     },
                     javascriptMode: JavascriptMode.unrestricted,
+
+
                   ),
                   webfileLogic.isLoading.value
                       ? Center(
@@ -275,3 +281,28 @@ class _WebFilePageState extends State<WebFilePage> {
     );
   }
 }
+/*
+                  WebView(
+                    initialUrl: Uri.encodeFull(webfileLogic.htmlPath.value),
+
+                    onPageFinished: (url) {
+                      webfileLogic.isLoading.value = false;
+                    },
+                    onProgress: (progress) {
+                      webfileLogic.isLoading.value = true;
+                    },
+                    onWebResourceError: (error) {
+                      print("[zt] Webview error type : ${error.errorType}");
+                      print("[zt] Webview error code : ${error.errorCode}");
+                      print(
+                          "[zt] Webview error description : ${error.description}");
+                      FirebaseCrashlytics.instance.log("[zt] Webview error type : ${error.errorType}");
+                      FirebaseCrashlytics.instance.log("[zt] Webview error code : ${error.errorCode}");
+                      FirebaseCrashlytics.instance.log(
+                          "[zt] Webview error description : ${error.description}");
+                    },
+                    javascriptMode: JavascriptMode.unrestricted,
+                    allowsInlineMediaPlayback: true,
+
+                  ),
+*/

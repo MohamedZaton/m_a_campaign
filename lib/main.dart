@@ -14,6 +14,7 @@ import 'package:m_a_camping/pages/web_file/web_file_logic.dart';
 import 'package:m_a_camping/pages/web_file/web_file_page.dart';
 import 'package:m_a_camping/themes/light_theme.dart';
 import 'package:m_a_camping/tools/constants.dart';
+import 'package:universal_platform/universal_platform.dart';
 
 
 class MyHttpOverrides extends HttpOverrides {
@@ -26,8 +27,11 @@ class MyHttpOverrides extends HttpOverrides {
 }
 
 void main() async {
-  HttpOverrides.global = new MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
+  // this for
+  if (UniversalPlatform.isAndroid) {
+    HttpOverrides.global = MyHttpOverrides();
+  }
 
   await Firebase.initializeApp();
 
